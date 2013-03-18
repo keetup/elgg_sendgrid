@@ -41,7 +41,7 @@ function elgg_sendgrid_init() {
 	elgg_register_page_handler('elgg_sendgrid', 'elgg_sendgrid_page_handler');
 	
 	//Register action
-	elgg_register_action('elgg_sendgrid/action', elgg_sendgrid_PATH.'actions/elgg_sendgrid/action_a.php', 'logged_in');
+//	elgg_register_action('elgg_sendgrid/action', elgg_sendgrid_PATH.'actions/elgg_sendgrid/action_a.php', 'logged_in');
 	
 }
 

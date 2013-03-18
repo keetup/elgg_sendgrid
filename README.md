@@ -1,7 +1,11 @@
 # Elgg Sendgrid v0.1 #
 
 ## About ##
-Integrates sendgrid email system into elgg platform
+Integrates sendgrid email system into elgg platform.
+
+## Requires ##
+
+PHP 5.3.3 or higher
 
 ## CONTRIBUTORS ##
 

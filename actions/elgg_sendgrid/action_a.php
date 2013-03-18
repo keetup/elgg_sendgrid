@@ -1,12 +1,7 @@
 <?php
 
-$success = FALSE;
-
-try {
-	$success = elggSendGrid::doAction(__FILE__);
-} catch (Exception $exc) {
-	register_error($exc->getMessage());
-}
-
-forward(REFERER);
-
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+?>
