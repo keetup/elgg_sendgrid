@@ -43,6 +43,46 @@ function elgg_sendgrid_init() {
 	//Register action
 //	elgg_register_action('elgg_sendgrid/action', elgg_sendgrid_PATH.'actions/elgg_sendgrid/action_a.php', 'logged_in');
 	
+	
+	if (elgg_get_plugin_setting('sendgrid_enabled','elgg_sendgrid') == 'yes') {
+		register_notification_handler('email', 'elgg_sendgrid_notify_handler');
+		elgg_register_plugin_hook_handler('email', 'system', 'elgg_sendgrid_mail_override');
+	}	
+	
+}
+
+
+
+/**
+ * Send a notification via email using sendgrid
+ *
+ * @param ElggEntity $from The from user/site/object
+ * @param ElggUser $to To which user?
+ * @param string $subject The subject of the message.
+ * @param string $message The message body
+ * @param array $params Optional parameters (not used)
+ * @return bool
+ */
+function elgg_sendgrid_notify_handler(ElggEntity $from, ElggUser $to, $subject, $message, array $params = NULL) {
+
+	if (!$from) {
+		throw new NotificationException(sprintf(elgg_echo('NotificationException:MissingParameter'), 'from'));
+	}
+
+	if (!$to) {
+		throw new NotificationException(sprintf(elgg_echo('NotificationException:MissingParameter'), 'to'));
+	}
+
+	if ($to->email=="") {
+		throw new NotificationException(sprintf(elgg_echo('NotificationException:NoEmailAddress'), $to->guid));
+	}
+
+	$from_email = elgg_sendgrid_extract_from_email();
+
+	$site = elgg_get_site_entity();
+	$from_name = $site->name;
+
+	return elggSendGrid::sendEmail($from_email, $from_name, $to->email, '', $subject, $message);
 }
 
 /**
