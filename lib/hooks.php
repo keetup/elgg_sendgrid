@@ -15,9 +15,7 @@
 function elgg_sendgrid_mail_override($hook, $entity_type, $returnvalue, $params) {
 	return elggSendGrid::sendEmail(
 			$params["from"],
-			$params["from"],
 			$params["to"],
-			'',
 			$params["subject"],
 			$params["body"]);
 }

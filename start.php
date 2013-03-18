@@ -84,7 +84,7 @@ function elgg_sendgrid_notify_handler(ElggEntity $from, ElggUser $to, $subject, 
 	$site = elgg_get_site_entity();
 	$from_name = $site->name;
 
-	return elggSendGrid::sendEmail($from_email, $from_name, $to->email, '', $subject, $message);
+	return elggSendGrid::sendEmail($from_email, $to->email, $subject, $message);
 }
 
 /**
