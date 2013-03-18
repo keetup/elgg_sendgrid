@@ -11,9 +11,9 @@ class elggSendGrid {
 	 * Send an email using phpmailer
 	 *
 	 * @param string $from       From address
-	 * @param string $from_name  From name
+
 	 * @param string $to         To address
-	 * @param string $to_name    To name
+
 	 * @param string $subject    The subject of the message.
 	 * @param string $body       The message body
 	 * @param array  $bcc        Array of address strings
@@ -24,8 +24,30 @@ class elggSendGrid {
 	 * @param array  $params     Additional parameters
 	 * @return bool
 	 */
-	public static function sendEmail($from, $from_name, $to, $to_name, $subject, $body, array $bcc = NULL, $html = false, array $files = NULL, array $params = NULL) {
+	public static function sendEmail($from, $to, $subject, $body, array $bcc = NULL, $html = false, array $files = NULL, array $params = NULL) {
+
+		$plugin = elgg_get_plugin_from_id('elgg_sendgrid');
 		
+		$username = $plugin->sendgrid_username;
+		$password = $plugin->sendgrid_password;
+		
+		$sendgrid = new SendGrid($username, $password);
+
+		$mail = new SendGrid\Mail();
+		$mail->addTo($to)->
+				setFrom($from)->
+				setSubject($subject)->
+				setText(elgg_strip_tags($body))->
+				setHtml($body);
+
+		if ($files && is_array($files)) {
+			foreach ($files as $file) {
+				$mail->addAttachment($file);
+			}
+		}
+
+		$success = $sendgrid->smtp->send($mail);
+		return $success;
 	}
 
 }

@@ -45,6 +45,8 @@ function elgg_sendgrid_init() {
 	
 	
 	if (elgg_get_plugin_setting('sendgrid_enabled','elgg_sendgrid') == 'yes') {
+		elgg_load_library('elgg.elgg_sendgrid');
+		
 		register_notification_handler('email', 'elgg_sendgrid_notify_handler');
 		elgg_register_plugin_hook_handler('email', 'system', 'elgg_sendgrid_mail_override');
 	}	
