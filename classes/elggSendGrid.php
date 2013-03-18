@@ -46,8 +46,8 @@ class elggSendGrid {
 			}
 		}
 
-		$success = $sendgrid->smtp->send($mail);
-//		$success = $sendgrid->web->send($mail);
+//		$success = $sendgrid->smtp->send($mail);
+		$success = $sendgrid->web->send($mail);
 		return $success;
 	}
 
