@@ -1,4 +1,18 @@
-### elgg_sendgrid v0.1 ###
+# Elgg Sendgrid v0.1 #
+
+## About ##
+Integrates sendgrid email system into elgg platform
+
+## CONTRIBUTORS ##
+
+See CONTRIBUTORS.txt for the development credits.
+
+
+## LICENSE INFORMATION ##
+
+This software is governed under rights, privileges, and restrictions in 
+addition to those provided by the GPL v2.  Please carefully read the
+LICENSE.txt file for more information.
 
 Copyright (c) 2010 Keetup Development
 
@@ -17,33 +31,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307  
 USA
 
-This program automatically will add information just once to the keetup.com servers. This information is sent when the plugin is activated. The information will be useful for us to know which elgg version does the user has installed and then we can know the majority and we can focus on that particular version. 
-If you are not agree with this practice please feel free to comment line 11 of the file 
-/mod/elgg_sendgrid/views/default/settings/elgg_sendgrid/edit.php
-You should that line like this 
-//run_function_once("elgg_sendgrid_ping_home");
 
-
-** ABOUT ** 
-Social Music Theme
- 
-elgg_sendgrid is released under the GNU Public License (GPL), which
-is supplied in this distribution as LICENSE.
-
-
-** CONTRIBUTORS **
-
-See CONTRIBUTORS.txt for the development credits.
-
-
-** LICENSE INFORMATION **
-
-This software is governed under rights, privileges, and restrictions in 
-addition to those provided by the GPL v2.  Please carefully read the
-LICENSE.txt file for more information.
-
-
-** INSTALLATION **
+## INSTALLATION ##
 
 	* Unzip the file into the elgg/mods/ directory.
 
@@ -53,11 +42,11 @@ LICENSE.txt file for more information.
 	* Enjoy!
 	  
 	 
-** TODO **
+## TODO ##
 	  
 	* Nothing TODO at the moment.
 	
 	
-** CHANGES **
+## CHANGES ##
 
 	* No CHANGES at the moment.
