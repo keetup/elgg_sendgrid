@@ -12,6 +12,7 @@ $spanish = array(
 	
 	'elgg_sendgrid:input:username' => "Usuario de Sendgrid",
 	'elgg_sendgrid:input:password' => "Password de Sendgrid",
+	'elgg_sendgrid:input:enabled' => "Habilitado",
 );
 
 add_translation("es", $spanish);
