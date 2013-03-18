@@ -10,6 +10,9 @@ $english = array(
 	
 	//errors
 	'elgg_sendgrid:exceptions:not_implemented' => 'The action in the file %s was not implemented yet',
+	
+	'elgg_sendgrid:input:username' => "Sendgrid username",
+	'elgg_sendgrid:input:password' => "Sendgrid password",
 );
 
 add_translation("en", $english);
